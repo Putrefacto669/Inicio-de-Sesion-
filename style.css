@@ -1,0 +1,674 @@
+
+/* colors */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #eff3f4;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+form {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  background-color: #FFF;
+  margin: 0;
+  padding: 2.25em;
+  box-sizing: border-box;
+  border: solid 1px #DDD;
+  border-radius: .5em;
+  font-family: 'Source Sans Pro', sans-serif;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08),
+              0 6px 10px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+form:hover {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1),
+              0 8px 15px rgba(0, 0, 0, 0.07);
+}
+
+form .svgContainer {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 1em;
+  border-radius: 50%;
+  background: none;
+  border: solid 2.5px #3A5E77;
+  overflow: hidden;
+  pointer-events: none;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  z-index: 5;
+}
+
+form .svgContainer:hover {
+  transform: scale(1.02);
+  border-color: #4eb8dd;
+}
+
+form .svgContainer div {
+  position: relative;
+  width: 100%;
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 100%;
+}
+
+form .svgContainer .mySVG {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+form .inputGroup {
+  margin: 0 0 2em;
+  padding: 0;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+form .inputGroup:last-of-type {
+  margin-bottom: 0;
+}
+
+form label {
+  margin: 0 0 12px;
+  display: block;
+  font-size: 1.25em;
+  color: #217093;
+  font-weight: 700;
+  font-family: inherit;
+  transition: color 0.3s ease;
+}
+
+form input[type='email'], form input[type="text"], form input[type='password'] {
+  display: block;
+  margin: 0;
+  padding: 0 60px 0 1em;
+  background-color: #f3fafd;
+  border: solid 2px #217093;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  box-sizing: border-box;
+  width: 100%;
+  height: 65px;
+  font-size: 1.55em;
+  color: #353538;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+form input[type='email']:focus, form input[type="text"]:focus, form input[type='password']:focus {
+  outline: none;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1), 
+              0 0 0 3px rgba(78, 184, 221, 0.1);
+  border: solid 2px #4eb8dd;
+  background-color: #fff;
+}
+
+form input[type='email']:focus-visible, form input[type="text"]:focus-visible, form input[type='password']:focus-visible {
+  outline: 2px solid #4eb8dd;
+  outline-offset: 2px;
+}
+
+form input[type='email'], form input[type="text"] {
+  padding: 14px 60px 0px 1em;
+}
+
+form input::placeholder {
+  color: #999;
+  opacity: 0.7;
+  font-weight: 400;
+  transition: opacity 0.3s ease;
+}
+
+form input:focus::placeholder {
+  opacity: 0.5;
+}
+
+form button {
+  display: block;
+  margin: 0;
+  padding: .65em 1em 1em;
+  background-color: #4eb8dd;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  box-shadow: none;
+  width: 100%;
+  height: 65px;
+  font-size: 1.55em;
+  color: #FFF;
+  font-weight: 600;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+form button:hover, form button:active {
+  background-color: #217093;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(33, 112, 147, 0.3);
+}
+
+form button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(78, 184, 221, 0.5);
+}
+
+form button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  color: #999;
+}
+
+form button:disabled:hover {
+  background-color: #cccccc;
+  transform: none;
+  box-shadow: none;
+}
+
+form .inputGroup1 .helper {
+  position: absolute;
+  z-index: 1;
+  font-family: inherit;
+}
+
+form .inputGroup1 .helper1 {
+  top: 0;
+  left: 0;
+  transform: translate(1.4em, 2.6em) scale(1);
+  transform-origin: 0 0;
+  color: #217093;
+  font-size: 1.25em;
+  font-weight: 400;
+  opacity: .65;
+  pointer-events: none;
+  transition: transform .2s ease-out, opacity .2s linear;
+}
+
+form .inputGroup1.focusWithText .helper {
+  transform: translate(1.4em, 2em) scale(0.65);
+  opacity: 1;
+}
+
+/* ============================================
+   BOTÓN DE MOSTRAR/OCULTAR CONTRASEÑA
+   ============================================ */
+.password-toggle {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: #217093;
+  cursor: pointer;
+  font-size: 1.2em;
+  padding: 5px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: #4eb8dd;
+  background-color: rgba(78, 184, 221, 0.1);
+}
+
+.password-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(78, 184, 221, 0.5);
+}
+
+.password-toggle .eye-icon {
+  font-size: 1.4em;
+  transition: transform 0.3s ease;
+}
+
+.password-toggle:hover .eye-icon {
+  transform: scale(1.1);
+}
+
+.password-toggle.active {
+  color: #4eb8dd;
+  background-color: rgba(78, 184, 221, 0.15);
+}
+
+/* Ajustar padding del input de contraseña cuando tiene el botón */
+.inputGroup2 input {
+  padding-right: 70px !important;
+}
+
+/* ============================================
+   ESTADOS DE VALIDACIÓN
+   ============================================ */
+
+/* Estado válido */
+form .inputGroup.valid label {
+  color: #4CAF50;
+}
+
+form .inputGroup.valid input {
+  border-color: #4CAF50;
+  background-color: rgba(76, 175, 80, 0.05);
+}
+
+form .inputGroup.valid input:focus {
+  border-color: #45a049;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1), 
+              0 0 0 3px rgba(76, 175, 80, 0.1);
+}
+
+/* Estado inválido */
+form .inputGroup.invalid label {
+  color: #F44336;
+}
+
+form .inputGroup.invalid input {
+  border-color: #F44336;
+  background-color: rgba(244, 67, 54, 0.05);
+}
+
+form .inputGroup.invalid input:focus {
+  border-color: #e53935;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1), 
+              0 0 0 3px rgba(244, 67, 54, 0.1);
+}
+
+/* Estado de carga */
+form .inputGroup.loading label {
+  color: #2196F3;
+}
+
+form .inputGroup.loading input {
+  border-color: #2196F3;
+  background-color: rgba(33, 150, 243, 0.05);
+}
+
+form .inputGroup.loading input:focus {
+  border-color: #1e88e5;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1), 
+              0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+/* Iconos de validación */
+form .inputGroup .validation-icon {
+  position: absolute;
+  right: 55px;
+  top: 50%;
+  transform: translateY(-50%) scale(1);
+  font-size: 1.5em;
+  font-weight: bold;
+  pointer-events: none;
+  z-index: 2;
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+}
+
+form .inputGroup .validation-icon.entering {
+  animation: popIn 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+form .inputGroup .validation-icon.exiting {
+  animation: popOut 0.3s ease-out;
+}
+
+@keyframes popIn {
+  0% { transform: translateY(-50%) scale(0); opacity: 0; }
+  70% { transform: translateY(-50%) scale(1.2); }
+  100% { transform: translateY(-50%) scale(1); opacity: 1; }
+}
+
+@keyframes popOut {
+  0% { transform: translateY(-50%) scale(1); opacity: 1; }
+  100% { transform: translateY(-50%) scale(0); opacity: 0; }
+}
+
+/* Colores específicos para iconos */
+form .inputGroup.valid .validation-icon {
+  color: #4CAF50;
+  background: rgba(76, 175, 80, 0.1);
+}
+
+form .inputGroup.invalid .validation-icon {
+  color: #F44336;
+  background: rgba(244, 67, 54, 0.1);
+}
+
+form .inputGroup.loading .validation-icon {
+  color: #2196F3;
+  background: rgba(33, 150, 243, 0.1);
+}
+
+/* Estados del formulario completo */
+form.valid {
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2),
+              0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+form.invalid {
+  border-color: #F44336;
+  box-shadow: 0 0 0 2px rgba(244, 67, 54, 0.2),
+              0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+form.loading {
+  border-color: #2196F3;
+  box-shadow: 0 0 0 2px rgba(33, 150, 243, 0.2),
+              0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* Animación de sacudida para errores */
+@keyframes shake {
+  0%, 100% { transform: translate(-50%, -50%); }
+  10%, 30%, 50%, 70%, 90% { transform: translate(calc(-50% + 5px), -50%); }
+  20%, 40%, 60%, 80% { transform: translate(calc(-50% - 5px), -50%); }
+}
+
+.shake {
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+/* Confetti para éxito */
+.confetti {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.confetti:nth-child(3n) { background: #FF5252; }
+.confetti:nth-child(3n+1) { background: #4CAF50; }
+.confetti:nth-child(3n+2) { background: #2196F3; }
+.confetti:nth-child(3n+3) { background: #FFC107; }
+
+/* Estado de carga del botón */
+form button.loading {
+  color: transparent;
+  position: relative;
+}
+
+form button.loading::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: 50%;
+  margin-left: -12px;
+  margin-top: -12px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   RESPONSIVIDAD
+   ============================================ */
+
+@media (max-width: 480px) {
+  form {
+    width: 90%;
+    padding: 1.5em;
+    margin: 1em;
+    position: relative;
+    top: auto;
+    left: auto;
+    transform: none;
+    margin: 2em auto;
+  }
+  
+  form .svgContainer {
+    width: 150px;
+    height: 150px;
+  }
+  
+  form input[type='email'],
+  form input[type="text"],
+  form input[type='password'],
+  form button {
+    height: 55px;
+    font-size: 1.3em;
+  }
+  
+  form label {
+    font-size: 1.1em;
+  }
+  
+  form .inputGroup .validation-icon {
+    right: 50px;
+    font-size: 1.3em;
+    width: 22px;
+    height: 22px;
+  }
+  
+  .password-toggle {
+    right: 10px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.1em;
+  }
+  
+  form button.loading::after {
+    width: 20px;
+    height: 20px;
+    margin-left: -10px;
+    margin-top: -10px;
+  }
+  
+  .inputGroup2 input {
+    padding-right: 60px !important;
+  }
+}
+
+@media (max-width: 320px) {
+  form {
+    padding: 1em;
+  }
+  
+  form .svgContainer {
+    width: 120px;
+    height: 120px;
+  }
+  
+  form input[type='email'],
+  form input[type="text"],
+  form input[type='password'],
+  form button {
+    height: 50px;
+    font-size: 1.1em;
+  }
+  
+  .password-toggle {
+    right: 8px;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* ============================================
+   MEJORAS DE ACCESIBILIDAD
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  form button.loading::after {
+    animation: none;
+    content: '...';
+    color: white;
+    font-size: 1.5em;
+    border: none;
+    background: none;
+    width: auto;
+    height: auto;
+    margin: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* Mejoras para alto contraste */
+@media (prefers-contrast: high) {
+  form input[type='email'],
+  form input[type="text"],
+  form input[type='password'] {
+    border-width: 3px;
+  }
+  
+  form button {
+    border: 2px solid #217093;
+  }
+  
+  .password-toggle {
+    border: 1px solid #217093;
+  }
+}
+
+/* ============================================
+   ESTADOS ESPECIALES
+   ============================================ */
+
+/* Foco mejorado para navegación por teclado */
+form input:focus-visible,
+form button:focus-visible,
+.password-toggle:focus-visible {
+  outline: 3px solid #4eb8dd;
+  outline-offset: 2px;
+}
+
+/* Estados para móviles/táctiles */
+@media (hover: none) and (pointer: coarse) {
+  form input[type='email']:focus,
+  form input[type="text"]:focus,
+  form input[type='password']:focus {
+    box-shadow: 0 0 0 4px rgba(78, 184, 221, 0.3);
+  }
+  
+  form button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+  
+  .password-toggle:active {
+    transform: translateY(-50%) scale(0.95);
+    background-color: rgba(78, 184, 221, 0.2);
+  }
+}
+
+/* Mejora para inputs con contenido */
+form input:not(:placeholder-shown) {
+  background-color: #fff;
+}
+
+/* Transición suave para SVG */
+form .svgContainer .mySVG {
+  transition: transform 0.5s ease;
+}
+
+/* Efecto de pulso para atención */
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(78, 184, 221, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(78, 184, 221, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(78, 184, 221, 0); }
+}
+
+.pulse {
+  animation: pulse 2s infinite;
+}
+
+/* Estilo para mensajes de error */
+.error-message {
+  color: #F44336;
+  font-size: 0.85em;
+  margin-top: 5px;
+  display: none;
+  font-weight: 600;
+}
+
+form .inputGroup.invalid .error-message {
+  display: block;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Ajuste para grupos de input con iconos */
+form .inputGroup.has-icon input {
+  padding-right: 60px;
+}
+
+/* Estilo para el avatar cuando está interactuando */
+.avatar-interacting {
+  filter: brightness(1.1);
+  transition: filter 0.3s ease;
+}
+
+/* Efecto especial cuando se muestra la contraseña */
+.password-visible .svgContainer {
+  border-color: #4eb8dd;
+  box-shadow: 0 0 15px rgba(78, 184, 221, 0.3);
+}
